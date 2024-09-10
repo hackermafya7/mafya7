@@ -1,0 +1,164 @@
+<html lang="ar">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>تسجيل الدخول</title> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+  <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib09ad_FYUocghhHrFhqswRcS7eWlJvb08BZDFutlaspPRPqV4-ZNJn2a0TCe87h8fy87Ln2CQqcocFg5sfPyq1vXNL-J_25LybZHJeKiOaJc-SYLFieaVyj3A3cVDbc02lHwjQtffUo-5MXgDyRv06xLAxzMtP8w3B87cNMbmYa28cOOYSIkRaqicSiFo/w945-h600-p-k-no-nu/IMG_20240909_183618_366.jpg'); /* استبدل 'رابط_الخلفية_هنا' بالرابط الذي تريد استخدامه */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+        }
+
+        #pageLogo {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNinUOLg7XIesGmrfikfN1sxK8NH8_1aUhjqYjYzayVXriqVZXlgCWvTX6tZI07rjXTFqeTvxD_iGGvkETT5Mk6bVw2F6xjh3P2YPSBkGzNbe46H8EwIbfnQ7o19VRX78E2rQOfABOdfdJLWu-RqYBLNJQEqqm_sMRPkk0SZ7gKBQdJWN6kaY9hOsuctTj/w945-h600-p-k-no-nu/IMG_20240909_153644_733-removebg-preview.png');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .login-container {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            border: 2px solid #007bff;
+            background-color: transparent;
+            color: white;
+            width: 100%;
+            max-width: 350px;
+            box-sizing: border-box;
+            margin-top: 100px;
+            position: relative;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        input[type="text"].code {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #555;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .icon-container {
+            margin-top: 20px;
+        }
+
+        .icon-container a {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .icon-container a:hover {
+            color: #4caf50;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #000;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            font-size: 40px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #4caf50;
+        }
+    </style> 
+ </head> 
+ <body> 
+  <div id="pageLogo"></div> 
+  <div class="login-container"> 
+   <h2>تسجيل الدخول</h2> 
+   <p>اليوم: <span id="todayDate">٢١‏/٨‏/٢٠٢٤</span></p> 
+   <form> 
+    <input type="text" class="code" id="codeInput" placeholder="كود التفعيل" required> 
+    <input type="submit" value="تأكيد" onclick="verifyCode(); return false;"> 
+   </form> 
+   <div class="icon-container"> 
+    <a href="https://t.me/mafya7_crash" target="_blank" title="تابعنا على تليجرام"><i class="fab fa-telegram"></i></a> 
+    <a href="https://t.me/mr_mafya7" target="_blank" title="شراء كود التفعيل"><i class="fas fa-shopping-cart"></i></a> 
+   </div> 
+  </div> 
+  <div class="social-icons"> 
+   <a href="https://www.facebook.com/profile.php?id=61564768001209&mibextid=ZbWKwL" target="_blank" title="تابعنا على فيسبوك"><i class="fab fa-facebook-f"></i></a> 
+   <a href="https://www.youtube.com/@mafya7" target="_blank" title="تابعنا على يوتيوب"><i class="fab fa-youtube"></i></a> 
+   <a href="https://www.tiktok.com/@mafya7_xbet?_t=8pbcuQBLbym&_r=1" target="_blank" title="تابعنا على تيك توك"><i class="fab fa-tiktok"></i></a> 
+  </div> 
+  <script>
+        // دالة لتوليد الكود اليومي بناءً على تاريخ اليوم
+        function generateDailyCode() {
+            const date = new Date();
+            const year = date.getFullYear().toString().slice(-2); // آخر رقمين من السنة
+            const month = (date.getMonth() + 1).toString().padStart(2, '0'); // الشهر
+            const day = date.getDate().toString().padStart(2, '0'); // اليوم
+            const dailyCode = `${year}${month}${day}`; // جمع السنة والشهر واليوم
+            return dailyCode;
+        }
+
+        // عرض تاريخ اليوم
+        document.getElementById('todayDate').textContent = new Date().toLocaleDateString('ar-EG');
+
+        // دالة التحقق من الكود
+        function verifyCode() {
+            const userCode = document.getElementById("codeInput").value;
+            const correctCode = generateDailyCode();
+
+            if (userCode === correctCode) {
+                alert("الكود صح سوف يتم فتح الاسكريبت الان.");
+                window.location.href = "https://hackermafya7.github.io/mafya/"; // الرابط اللي هتحول عليه المستخدم بعد التأكيد
+            } else {
+                alert("الكود غلط⁉️");
+            }
+        }
+    </script> 
+ </body>
+</html>
